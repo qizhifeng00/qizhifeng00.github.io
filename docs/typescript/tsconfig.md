@@ -2,7 +2,7 @@
 
 目前为止只有一个 TS 配置文件
 
-## tsconfig.ts
+## tsconfig.json
 
 一般来说都在根目录，JavaScript 项目可以使用 jsconfig.json 文件来代替，它的作用几乎相同。
 

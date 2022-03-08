@@ -1,5 +1,5 @@
 <!-- docs/_sidebar.md -->
 
-- [首页](zh-cn/)
-- [文档](zh-cn/guide)
+- [首页](/)
 - [TypeScript](typescript/tsconfig)
+- [工具](utils/utils)
