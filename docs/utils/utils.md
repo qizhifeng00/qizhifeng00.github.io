@@ -9,10 +9,7 @@
 使用 Math.round()转换为整数
 
 ```js
-const toSafeInteger = (num) =>
-  Math.round(
-    Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER)
-  )
+const toSafeInteger = (num) => Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER))
 ```
 
 ## 检查两个数字是否彼此近似相等
@@ -21,8 +18,7 @@ const toSafeInteger = (num) =>
 epsilon 以使用默认值 0.001。
 
 ```js
-const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
-  Math.abs(v1 - v2) < epsilon
+const approximatelyEqual = (v1, v2, epsilon = 0.001) => Math.abs(v1 - v2) < epsilon
 ```
 
 ## 检查页面的浏览器选项卡是否聚焦
@@ -89,8 +85,7 @@ const either =
 否则，返回范围内最近的数字。
 
 ```js
-const clampNumber = (num, a, b) =>
-  Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b))
+const clampNumber = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b))
 ```
 
 ## 将给定的数字填充到指定的长度
@@ -132,8 +127,7 @@ const isSessionStorageEnabled = () => {
 使用 Element.insertAdjacentHTML()的位置'beforebegin'来解析 htmlString 并将其插入到 的开始之前 el。
 
 ```js
-const insertBefore = (el, htmlString) =>
-  el.insertAdjacentHTML('beforebegin', htmlString)
+const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString)
 ```
 
 ## 在指定元素的结尾后插入一个 HTML 字符串
@@ -141,8 +135,7 @@ const insertBefore = (el, htmlString) =>
 Element.insertAdjacentHTML()与位置'afterend'一起使用以解析 htmlString 并将其插入到 的结尾之后 el。
 
 ```js
-const insertAfter = (el, htmlString) =>
-  el.insertAdjacentHTML('afterend', htmlString)
+const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString)
 ```
 
 ## 检查中的至少一个元件 values 被包括在 arr
@@ -171,9 +164,7 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
   const { top, left, bottom, right } = el.getBoundingClientRect()
   const { innerHeight, innerWidth } = window
   return partiallyVisible
-    ? ((top > 0 && top < innerHeight) ||
-        (bottom > 0 && bottom < innerHeight)) &&
-        ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+    ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) && ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
     : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth
 }
 ```
@@ -249,8 +240,7 @@ const uniqueElements = (arr) => [...new Set(arr)]
 detail 如果您不想将自定义数据传递给触发事件，请省略第三个参数。
 
 ```js
-const triggerEvent = (el, eventType, detail) =>
-  el.dispatchEvent(new CustomEvent(eventType, { detail }))
+const triggerEvent = (el, eventType, detail) => el.dispatchEvent(new CustomEvent(eventType, { detail }))
 ```
 
 ## 过滤掉具有指定值之一的数组元素
@@ -270,9 +260,29 @@ const without = (arr, ...args) => arr.filter((v) => !args.includes(v))
 
 ```js
 const findClosestMatchingNode = (node, selector) => {
-  for (let n = node; n.parentNode; n = n.parentNode)
-    if (n.matches && n.matches(selector)) return n
+  for (let n = node; n.parentNode; n = n.parentNode) if (n.matches && n.matches(selector)) return n
   return null
 }
 findClosestMatchingNode(document.querySelector('span'), 'body')
+```
+
+## 导出 word
+
+使用 Blob,再用 a 标签来触发
+最后用 revokeObjectURL 移除掉 createObjectURL(blob)，释放一波内存
+
+```ts
+const exportMessage = ({ fileString, fileName }): void => {
+  const _fileName = `${fileName}.doc`
+  const urlObject = URL || webkitURL
+  //创建word格式Blob实例
+  const blob = new Blob([fileString], {
+    type: 'application/msword;charset=utf-8',
+  })
+  const link = document.createElement('a')
+  link.href = urlObject.createObjectURL(blob)
+  link.download = _fileName
+  link.click()
+  URL.revokeObjectURL(link.href) //释放内存
+}
 ```
