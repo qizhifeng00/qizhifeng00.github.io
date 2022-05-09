@@ -21,7 +21,8 @@
 <code>cordova platform add cordova-electron</code>
 
 添加后会会生成 platforms 文件夹,里面就是每个平台对应的转换后的文件
-对应详细信息查看官方文档[添加平台部分](https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html)
+
+详细信息查看官方文档[添加平台部分](https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html)
 
 ## electron 平台
 
