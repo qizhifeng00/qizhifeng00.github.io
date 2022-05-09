@@ -13,8 +13,11 @@
 ## 添加平台
 
 <code>cordova platform add browser</code>
+
 <code>cordova platform add ios</code>
+
 <code>cordova platform add android</code>
+
 <code>cordova platform add cordova-electron</code>
 
 添加后会会生成 platforms 文件夹,里面就是每个平台对应的转换后的文件
@@ -22,9 +25,9 @@
 
 ## electron 平台
 
--不支持使用 cookie,得用本地缓存记录
+- 不支持使用 cookie,得用本地缓存记录
 
--如果出现白屏(404 等找不到对应的 js、css 文件)，需要把 Routes 里的 history 改成 Hash
+- 如果出现白屏(404 等找不到对应的 js、css 文件)，需要把 Routes 里的 history 改成 Hash
 
 ```ts
 //vue-router4 示例
@@ -37,16 +40,17 @@ const router = createRouter({
 
 ## android 平台
 
--需要安装 android sdk、java jdk(javau201)
+- 需要安装 android sdk、java jdk(javau201)
 
 Gradle 可以选择不手动安装,直接在 android studio 里安装 sdk 和 Gradle,只需要把 platform 文件夹下的 android 使用 android studio 打开。
 打包成 apk 和配置 Gradle 交给 android studio
 
--注意最高支持的 android API-Levels ,
+- 注意最高支持的 android API-Levels ,
 
--如果出现无法请求的情况(需用 https)
+- 如果出现无法请求的情况(需用 https)
 
 Android 9 以上默认禁用明文传输，再次允许明文传输需要在 config.xml 里或者平台文件夹下 xml 的 activity 元素里添加 android:usesCleartextTraffic="true"
+
 注意 android:usesCleartextTraffic 需要 android API-Levels 22 以上
 
 如果还是不行,在 config.xml 添加 <code><preference name="Scheme" value="http" /></code>
