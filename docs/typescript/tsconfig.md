@@ -4,8 +4,6 @@
 
 ## tsconfig.json
 
-一般来说都在根目录，JavaScript 项目可以使用 jsconfig.json 文件来代替，它的作用几乎相同。
-
 目前在用的配置文件
 
 ```json
