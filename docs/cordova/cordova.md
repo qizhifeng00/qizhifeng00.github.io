@@ -56,7 +56,10 @@ Android 9 以上默认禁用明文传输，再次允许明文传输需要在 con
 
 如果还是不行,在 config.xml 添加
 
-<code><preference name="Scheme" value="http" /></code>
+```xml
+<preference name="Scheme" value="http" />
+
+```
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
