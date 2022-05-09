@@ -53,7 +53,9 @@ Android 9 以上默认禁用明文传输，再次允许明文传输需要在 con
 
 注意 android:usesCleartextTraffic 需要 android API-Levels 22 以上
 
-如果还是不行,在 config.xml 添加 <code><preference name="Scheme" value="http" /></code>
+如果还是不行,在 config.xml 添加
+
+<code><preference name="Scheme" value="http" /></code>
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
