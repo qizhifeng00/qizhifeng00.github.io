@@ -286,3 +286,12 @@ const exportMessage = ({ fileString, fileName }): void => {
   URL.revokeObjectURL(link.href) //释放内存
 }
 ```
+
+##
+
+<code>chrome://flags/#same-site-by-default-cookies</code>
+<code>chrome://flags/#cookies-without-same-site-must-be-secure</code>
+
+```json
+
+```
